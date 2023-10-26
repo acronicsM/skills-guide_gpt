@@ -6,6 +6,6 @@ load_dotenv()
 
 
 class Settings:
-    MaxLenLetter = os.getenv('MaxLenLetter', default=300)
-    NumberQuestions = os.getenv('NumberQuestions', default=3)
-    NumberBasicQuestions = os.getenv('NumberBasicQuestions', default=5)
+    MaxLenLetter = int(os.getenv('MaxLenLetter', default=300))
+    NumberQuestions = int(os.getenv('NumberQuestions', default=3))
+    MaxNumberSkills = int(os.getenv('MaxNumberSkills', default=5))

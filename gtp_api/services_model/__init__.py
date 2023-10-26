@@ -22,9 +22,17 @@ class Parser(ABC):
 
 class ServicesModel:
     LetterPrefix = f'Напиши сопроводительное письмо не длиннее {Settings.MaxLenLetter} символов для вакансии:'
-    QuestionAnswer = 'Оформи в виде списка словарей Python, ключи словаря "вопрос", "ответ"'
-    InterviewPrefix = f'Придумай {Settings.NumberQuestions} вопроса по %skill% для собеседования с ответами'
-    InterviewBasicPrefix = f'Придумай {Settings.NumberBasicQuestions} технический вопроса по %skill% для собеседования с ответами'
+    InterviewPrefix = f'Придумай по %number% вопроса для собеседования с ответами для каждого hard skill:'
 
-
-
+    QuestionAnswer = '''Оформи в виде python структуры 
+    [
+      {
+        "skill": "string",
+        "qna": [
+          {
+            "question": "string",
+            "answer": "string"
+          }
+        ]
+      }
+    '''
