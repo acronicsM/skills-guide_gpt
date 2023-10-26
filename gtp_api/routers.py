@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 
-from .services_model.get_models import get_cover_letter
+from .services_model.get_models import get_cover_letter, get_interview
 from .schemas import LetterResponseModel, LetterModel, InterviewResponseModel, InterviewModel
 
 router = APIRouter(
@@ -23,4 +23,4 @@ async def letter(query: LetterModel):
              description='Возвращает !!!'
              )
 async def interview(query: InterviewModel):
-    return await get_cover_letter(**query.model_dump())
+    return await get_interview(**query.model_dump())

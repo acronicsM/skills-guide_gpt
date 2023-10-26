@@ -27,5 +27,15 @@ class InterviewModel(GPTModel):
     basic_skills: list[str] = Field(description='Базовые навыки вакансии')
 
 
+class InterviewQnA(BaseModel):
+    question: str
+    answer: str
+
+
+class InterviewSkill(BaseModel):
+    skill: str
+    qna: list[InterviewQnA]
+
+
 class InterviewResponseModel(BaseModel):
-    result: dict = Field(description='Список возможных вопросов с ответами')
+    result: list[InterviewSkill]
