@@ -21,18 +21,5 @@ class Parser(ABC):
 
 
 class ServicesModel:
-    LetterPrefix = f'Напиши сопроводительное письмо не длиннее {Settings.MaxLenLetter} символов для вакансии:'
-    InterviewPrefix = f'Придумай по %number% вопроса для собеседования с ответами для каждого hard skill:'
+    LetterInstructionYndx = 'Ты соискатель на должность которому нужно написать сопроводительное письмо'
 
-    QuestionAnswer = '''Оформи в виде python структуры 
-    [
-      {
-        "skill": "string",
-        "qna": [
-          {
-            "question": "string",
-            "answer": "string"
-          }
-        ]
-      }
-    '''
