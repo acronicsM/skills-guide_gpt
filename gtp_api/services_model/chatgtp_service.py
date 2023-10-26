@@ -8,6 +8,22 @@ from ..utils.interview import get_skills_text, interview_response_to_dict
 
 
 class ChatGPT(Parser, ServicesModel):
+    LetterPrefix = f'Напиши сопроводительное письмо не длиннее {Settings.MaxLenLetter} символов для вакансии:'
+    InterviewPrefix = f'Придумай по %number% вопроса для собеседования с ответами для каждого hard skill:'
+
+    QuestionAnswer = '''Оформи в виде python структуры 
+        [
+          {
+            "skill": "string",
+            "qna": [
+              {
+                "question": "string",
+                "answer": "string"
+              }
+            ]
+          }
+        '''
+
     @classmethod
     async def __get_answer_gpt(cls, content, provider=None, model=None):
         m = model if model else gpt_35_turbo
@@ -22,9 +38,9 @@ class ChatGPT(Parser, ServicesModel):
         return response
 
     @classmethod
-    def letter(cls, description, provider, model):
+    async def letter(cls, description, provider, model):
         content = f'{cls.LetterPrefix}\n{description}'
-        return cls.__get_answer_gpt(content=content, provider=provider, model=model)
+        return await cls.__get_answer_gpt(content=content, provider=provider, model=model)
 
     @classmethod
     async def interview(cls, key_skills, basic_skills, provider, model):

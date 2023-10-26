@@ -7,8 +7,12 @@ SERVICES = {
 }
 
 
-def get_cover_letter(service, model, provider, description):
-    return {'result': SERVICES[service.value].letter(description=description, provider=provider, model=model)}
+async def get_cover_letter(service, model, provider, description):
+    result = await SERVICES[service.value].letter(description=description,
+                                            provider=provider,
+                                            model=model)
+
+    return {'result':result}
 
 
 async def get_interview(service, model, provider, key_skills, basic_skills):
