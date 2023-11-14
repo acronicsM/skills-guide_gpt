@@ -22,6 +22,8 @@ async def get_answer(content, instruction):
         'x-folder-id': Settings.FolderIDYndx,
     }
 
+    print(Settings.ApiKeyYndx, Settings.FolderIDYndx)
+
     async with aiohttp.ClientSession() as session:
         async with session.post(Settings.ApiAddrYndx, headers=headers, data=json.dumps(content)) as response:
             answer = await response.json()
