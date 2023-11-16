@@ -2,6 +2,10 @@
 
 Сервис проекта skills_guide по взаимодействую с GPT моделями
 
+![](https://img.shields.io/badge/FastAPI-0.104.0-00CED1)
+![](https://img.shields.io/badge/AIOHTTP-3.8.6-F0FFFF)
+![](https://img.shields.io/badge/g4f-0.1.7.7-DC143C)
+
 ## 🛠️ Подготовка в запуску
 
 1. [Download and install Python](https://www.python.org/downloads/) (Version 3.10+ is recommended).
